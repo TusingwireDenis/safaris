@@ -1,0 +1,995 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bwinga Wildlife Safaris - Gorilla Trekking in Uganda</title>
+    <style>
+        /* Global Styles */
+        :root {
+            --primary: #2e8b57;
+            --secondary: #f5a623;
+            --dark: #333;
+            --light: #f8f9fa;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: #f5f5f5;
+        }
+        
+        a {
+            text-decoration: none;
+            color: var(--primary);
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .btn:hover {
+            background: #1f6b3d;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn-secondary {
+            background: var(--secondary);
+        }
+        
+        .btn-secondary:hover {
+            background: #e6951a;
+        }
+        
+        section {
+            padding: 60px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            color: var(--primary);
+            font-size: 2.5rem;
+            position: relative;
+        }
+        
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: var(--secondary);
+            margin: 15px auto;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('5.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: white;
+        }
+        
+        .logo span {
+            color: var(--secondary);
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            color: white;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--secondary);
+        }
+        
+        .hamburger {
+            display: none;
+            cursor: pointer;
+        }
+        
+        .hero {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin-bottom: 30px;
+        }
+        
+        /* About Section */
+        .about {
+            background-color: white;
+        }
+        
+        .about-content {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 40px;
+        }
+        
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .about-image {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .about-image img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Tours Section */
+        .tours {
+            background-color: var(--light);
+        }
+        
+        .tour-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .tour-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .tour-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .tour-image {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .tour-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .tour-card:hover .tour-image img {
+            transform: scale(1.1);
+        }
+        
+        .tour-info {
+            padding: 20px;
+        }
+        
+        .tour-info h3 {
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+        
+        .tour-info p {
+            margin-bottom: 15px;
+            color: #666;
+        }
+        
+        .tour-price {
+            font-weight: bold;
+            color: var(--secondary);
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+        }
+        
+        /* Gallery Section */
+        .gallery {
+            background-color: white;
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 15px;
+        }
+        
+        .gallery-item {
+            height: 250px;
+            overflow: hidden;
+            border-radius: 10px;
+            position: relative;
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+        
+        .gallery-overlay i {
+            color: white;
+            font-size: 2rem;
+        }
+        
+        /* Testimonials Section */
+        .testimonials {
+            background-color: var(--light);
+        }
+        
+        .testimonial-slider {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .testimonial {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            display: none;
+        }
+        
+        .testimonial.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .testimonial img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 15px;
+            border: 3px solid var(--secondary);
+        }
+        
+        .testimonial p {
+            font-style: italic;
+            margin-bottom: 15px;
+        }
+        
+        .testimonial-author {
+            font-weight: bold;
+            color: var(--primary);
+        }
+        
+        .slider-controls {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+        }
+        
+        .slider-dot {
+            width: 12px;
+            height: 12px;
+            background: #ccc;
+            border-radius: 50%;
+            margin: 0 5px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        
+        .slider-dot.active {
+            background: var(--primary);
+        }
+        
+        /* Contact Section */
+        .contact {
+            background-color: white;
+        }
+        
+        .contact-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+        
+        .contact-info {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .contact-info h3 {
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+        
+        .contact-info p {
+            margin-bottom: 15px;
+        }
+        
+        .contact-info i {
+            color: var(--secondary);
+            margin-right: 10px;
+            width: 20px;
+        }
+        
+        .contact-form {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        
+        .form-group textarea {
+            height: 150px;
+            resize: vertical;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 40px 0 20px;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-column {
+            flex: 1;
+            min-width: 200px;
+        }
+        
+        .footer-column h3 {
+            color: var(--secondary);
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-column ul li a {
+            color: #ddd;
+            transition: color 0.3s;
+        }
+        
+        .footer-column ul li a:hover {
+            color: var(--secondary);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-links a {
+            color: white;
+            background: rgba(255, 255, 255, 0.1);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: all 0.3s;
+        }
+        
+        .social-links a:hover {
+            background: var(--secondary);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 250px;
+                height: 100vh;
+                background: var(--dark);
+                flex-direction: column;
+                padding: 80px 30px;
+                transition: right 0.3s ease;
+                z-index: 100;
+            }
+            
+            .nav-links.active {
+                right: 0;
+            }
+            
+            .nav-links li {
+                margin: 15px 0;
+            }
+            
+            .hamburger {
+                display: block;
+                z-index: 101;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .contact-container {
+                flex-direction: column;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Header with Navigation -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">Bwinga Wildlife <span>Safaris</span> Limited</div>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#tours">Tours</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                     <li><a href="https://tusingwiredenis.github.io/buho/">BUHOMART</a></li>
+
+                </ul>
+                <div class="hamburger">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+            
+            <div class="hero" id="home">
+                <h1>Discover Uganda's Mountain Gorillas</h1>
+                <p>Experience the adventure of a lifetime with Bwinga Wildlife Safaris. Trek through the lush forests of Bwindi Impenetrable National Park and come face-to-face with majestic mountain gorillas in their natural habitat.</p>
+                <div>
+                    <a href="#tours" class="btn">Explore Tours</a>
+                    <a href="#contact" class="btn btn-secondary">Book Now</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <h2 class="section-title">About Bwinga Wildlife Safaris</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Bwinga Wildlife Safaris Limited is a premier tour operator based in Kampala, Uganda, specializing in unforgettable gorilla trekking experiences in Bwindi Impenetrable National Park.</p>
+                    <p>Founded and led by CEO <strong>Ahumuza Justus Joe</strong>, our company is dedicated to providing exceptional wildlife encounters while promoting sustainable tourism practices that benefit local communities and conservation efforts.</p>
+                    <p>Based in Nkwenda-Buhoma, Kanungu district, we have unparalleled expertise in navigating the Bwindi forest and ensuring our guests have safe, memorable encounters with Uganda's famous mountain gorillas.</p>
+                    <p>Beyond gorilla trekking, we offer comprehensive safari packages that showcase Uganda's diverse wildlife, landscapes, and cultures across the entire country.</p>
+                    <a href="#contact" class="btn">Contact Us</a>
+                </div>
+                <div class="about-image">
+                    <img src="8.jpg" alt="Gorilla in Bwindi Forest">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tours Section -->
+    <section class="tours" id="tours">
+        <div class="container">
+            <h2 class="section-title">Our Popular Tours</h2>
+            <div class="tour-grid">
+                <div class="tour-card">
+                    <div class="tour-image">
+                        <img src="18.jpg" alt="Gorilla Trekking">
+                    </div>
+                    <div class="tour-info">
+                        <h3>Classic Gorilla Trek</h3>
+                        <p>1-day intensive gorilla trekking experience in Bwindi Impenetrable National Park with expert guides.</p>
+                        <div class="tour-price">$700 per person</div>
+                        <a href="#contact" class="btn">Book Now</a>
+                    </div>
+                </div>
+                
+                <div class="tour-card">
+                    <div class="tour-image">
+                        <img src="3.jpg" alt="Wildlife Safari">
+                    </div>
+                    <div class="tour-info">
+                        <h3>Gorillas & Wildlife Safari</h3>
+                        <p>5-day combined gorilla trekking and wildlife viewing in Queen Elizabeth National Park.</p>
+                        <div class="tour-price">$2,500 per person</div>
+                        <a href="#contact" class="btn">Book Now</a>
+                    </div>
+                </div>
+                
+                <div class="tour-card">
+                    <div class="tour-image">
+                        <img src="1.jpg" alt="Chimpanzee Tracking">
+                    </div>
+                    <div class="tour-info">
+                        <h3>Primates of Uganda</h3>
+                        <p>7-day adventure tracking gorillas, chimpanzees, and other primates across Uganda.</p>
+                        <div class="tour-price">$3,200 per person</div>
+                        <a href="#contact" class="btn">Book Now</a>
+                    </div>
+                </div>
+             <div class="tour-card">
+                    <div class="tour-image">
+                        <img src="12.jpg" alt="Chimpanzee Tracking">
+                    </div>
+                    <div class="tour-info">
+                        <h3>Help to Needy</h3>
+                        <p>You can visit the economically disadvantanged children and learn more on their lives.</p>
+                        <div class="tour-price">support a life</div>
+                        <a href="#contact" class="btn">Learn More</a>
+                    </div>
+                </div>
+             <div class="tour-card">
+                    <div class="tour-image">
+                        <img src="27.jpg" alt="Chimpanzee Tracking">
+                    </div>
+                    <div class="tour-info">
+                        <h3>Tree Planting</h3>
+                        <p>Continous tree planting is done to diversify the climate in Bwindi.</p>
+                        <div class="tour-price">See various local tree species</div>
+                        <a href="#contact" class="btn">learn more</a>
+                    </div>
+                </div>
+             <div class="tour-card">
+                    <div class="tour-image">
+                        <img src="4.jpg" alt="Chimpanzee Tracking">
+                    </div>
+                    <div class="tour-info">
+                        <h3>Jungle fun</h3>
+                        <p>Best photography with our experienced team of camera men.</p>
+                        <div class="tour-price">Have best memories</div>
+                        <a href="#contact" class="btn">Book Now</a>
+                    </div>
+                </div>
+             <div class="tour-card">
+                    <div class="tour-image">
+                        <img src="21.jpg" alt="Chimpanzee Tracking">
+                    </div>
+                    <div class="tour-info">
+                        <h3>Field involvements</h3>
+                        <p>Clear explanations from our CEO .....JOE.</p>
+                        <div class="tour-price">Interact Fully</div>
+                        <a href="#contact" class="btn">Learn More</a>
+                    </div>
+                </div>
+               <div class="tour-card">
+                    <div class="tour-image">
+                        <img src="10.jpg" alt="Chimpanzee Tracking">
+                    </div>
+                    <div class="tour-info">
+                        <h3>Prossy </h3>
+                        <p>part of our expetized team.</p>
+                        <div class="tour-price">Interact Fully</div>
+                        <a href="#contact" class="btn">Learn More</a>
+                    </div>
+                </div>
+
+                <div class="tour-card">
+                    <div class="tour-image">
+                        <img src="24.jpg" alt="Custom Safari">
+                    </div>
+                    <div class="tour-info">
+                        <h3>Custom Safari Experience</h3>
+                        <p>Tailor-made safari itineraries designed to your preferences and schedule.</p>
+                        <div class="tour-price">Custom Pricing</div>
+                        <a href="#contact" class="btn">Book Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery" id="gallery">
+        <div class="container">
+            <h2 class="section-title">Our Gallery</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="7.jpg" alt="Gorilla Family">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="6.jpg" alt="Bwindi Forest">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="2.jpg" alt="Gorilla Close-up">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="19.jpg" alt="Chimpanzee">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="22.jpg" alt="Lion">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="28.jpg" alt="Elephants">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="n.jpg" alt="Gorilla Silverback">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="m.jpg" alt="Gorilla Silverback">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="c.jpg" alt="Gorilla Silverback">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="t.jpg" alt="Gorilla Silverback">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="v.jpg" alt="Gorilla Silverback">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="car.jpg" alt="Uganda Landscape">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <h2 class="section-title">What Our Clients Say</h2>
+            <div class="testimonial-slider">
+                <div class="testimonial active">
+                    <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Sarah Johnson">
+                    <p>"The gorilla trekking experience with Bwinga Safaris was absolutely incredible! Our guide was knowledgeable and made sure we had the best possible encounter with these magnificent creatures. Highly recommend!"</p>
+                    <div class="testimonial-author">Sarah Johnson, USA</div>
+                </div>
+                <div class="testimonial">
+                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Michael Brown">
+                    <p>"From the moment we arrived in Uganda, Bwinga took care of everything. The organization was flawless, the accommodations excellent, and the gorilla trekking was a once-in-a-lifetime experience. Will definitely use them again!"</p>
+                    <div class="testimonial-author">Michael Brown, UK</div>
+                </div>
+                <div class="testimonial">
+                    <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Anna Müller">
+                    <p>"As a solo female traveler, I felt completely safe and well taken care of throughout my 10-day safari with Bwinga. The gorillas were amazing, but the entire experience was made special by the wonderful team."</p>
+                    <div class="testimonial-author">Anna Müller, Germany</div>
+                </div>
+                <div class="slider-controls">
+                    <div class="slider-dot active" data-index="0"></div>
+                    <div class="slider-dot" data-index="1"></div>
+                    <div class="slider-dot" data-index="2"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2 class="section-title">Contact Us</h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Get In Touch</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> P.O Box 189256, Kampala, Uganda</p>
+                    <p><i class="fas fa-phone"></i> +256 762 218 665/ +256 763 814 037</p>
+                    <p><i class="fas fa-envelope"></i> info@bwingasafaris.com</p>
+                     <p><i class="fas fa-envelope"></i> joeahumuza123@gmail.com</p>
+                    <p><i class="fas fa-clock"></i> Mon-Fri: 8:00 AM - 5:00 PM</p>
+                    <p><i class="fas fa-compass"></i> Main Operations: Nkwenda-Buhoma, Kanungu</p>
+                    
+                    <h3 style="margin-top: 30px;">Why Choose Us</h3>
+                    <p><i class="fas fa-check"></i> Expert local guides with 10+ years experience</p>
+                    <p><i class="fas fa-check"></i> 98% successful gorilla tracking rate</p>
+                    <p><i class="fas fa-check"></i> Sustainable tourism practices</p>
+                    <p><i class="fas fa-check"></i> Customizable tour packages</p>
+                    <p><i class="fas fa-check"></i> Transport across all Uganda</p>
+                </div>
+                <div class="contact-form">
+                    <form id="bookingForm">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="tour">Tour Interested In</label>
+                            <input type="text" id="tour" name="tour" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="date">Preferred Dates</label>
+                            <input type="text" id="date" name="date" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Additional Information</label>
+                            <textarea id="message" name="message"></textarea>
+                        </div>
+                        <button type="submit" class="btn">Send Inquiry</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Bwinga Safaris</h3>
+                    <p>Uganda's premier gorilla trekking and wildlife safari company, offering unforgettable experiences in Bwindi Impenetrable National Park and beyond.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#tours">Tours</a></li>
+                        <li><a href="#gallery">Gallery</a></li>
+                        <li><a href="#testimonials">Testimonials</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                         <li><a href="https://tusingwiredenis.github.io/buho/">BUHOMART</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Tours</h3>
+                    <ul>
+                        <li><a href="#tours">Gorilla Trekking</a></li>
+                        <li><a href="#tours">Wildlife Safaris</a></li>
+                        <li><a href="#tours">Chimpanzee Tracking</a></li>
+                        <li><a href="#tours">Bird Watching</a></li>
+                        <li><a href="#tours">Cultural Tours</a></li>
+                        <li><a href="#tours">Custom Packages</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Info</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> P.O Box 189256, Kampala</li>
+                        <li><i class="fas fa-phone"></i> +256 772 123 456</li>
+                        <li><i class="fas fa-envelope"></i> info@bwingasafaris.com</li>
+                        <li><i class="fas fa-user-tie"></i> CEO: Ahumuza Justus Joe</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Bwinga Wildlife Safaris Limited. All Rights Reserved.</p>
+                    <p>&copy; 2025 DenTech</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Navigation Toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+        
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            hamburger.innerHTML = navLinks.classList.contains('active') ? 
+                '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                hamburger.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Testimonial Slider
+        const testimonials = document.querySelectorAll('.testimonial');
+        const dots = document.querySelectorAll('.slider-dot');
+        let currentTestimonial = 0;
+        
+        function showTestimonial(index) {
+            testimonials.forEach(testimonial => testimonial.classList.remove('active'));
+            dots.forEach(dot => dot.classList.remove('active'));
+            
+            testimonials[index].classList.add('active');
+            dots[index].classList.add('active');
+            currentTestimonial = index;
+        }
+        
+        dots.forEach(dot => {
+            dot.addEventListener('click', function() {
+                showTestimonial(parseInt(this.getAttribute('data-index')));
+            });
+        });
+        
+        // Auto-rotate testimonials
+        setInterval(() => {
+            currentTestimonial = (currentTestimonial + 1) % testimonials.length;
+            showTestimonial(currentTestimonial);
+        }, 5000);
+        
+        // Form submission
+        const bookingForm = document.getElementById('bookingForm');
+        bookingForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your inquiry! We will contact you shortly to confirm your booking details.');
+            this.reset();
+        });
+        
+        // Gallery lightbox functionality would go here in a more advanced implementation
+    </script>
+</body>
+</html>
